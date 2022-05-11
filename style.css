@@ -538,7 +538,13 @@ textarea {
 .view-more-button {
     align-self: flex-start;
 }
-
+.close-button {
+    cursor: pointer;
+    align-self: flex-end;
+    color: red;
+    font-weight: bold;
+    margin-top: 5px;
+}
 
 /*footer*/
 [class*="icon-"]{
