@@ -7,7 +7,8 @@ font-family: 'Open Sans', sans-serif;
 }
 
 .container {
-    width: 100%;
+    /*width: 100%;*/
+    height: 100%;
     padding-left: 15px;
     padding-right: 15px;
     margin: 0 auto;
@@ -25,11 +26,8 @@ font-family: 'Open Sans', sans-serif;
 }
 .header{
  background-color: #1d2126;
- 
-}
-.container {
-    width: 100%;
-}
+ }
+
 /*grid xs*/
 .col-xs-1 {
     flex: 0 0 8.33333%;
@@ -81,10 +79,23 @@ font-family: 'Open Sans', sans-serif;
 }
 
 /*menu-section*/
+.position-centre {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.row-mobile {
+    height: 60px;
+}
+.position-end {
+    justify-content: flex-end;
+}
+
 .menu ul{
     display: flex;
     justify-content: space-evenly;
     text-decoration: none;
+    
 }   
 
 .menu li{
@@ -98,7 +109,7 @@ font-family: 'Open Sans', sans-serif;
     text-decoration: none;
     color: #a4aead;
     line-height: 30px;
-           
+     
 }
 .menu li:hover{
     border: 1px solid #a4aead;
@@ -132,6 +143,7 @@ li.active>a{
 }
 
 div.row.position {
+    /*text-align: center;*/
     align-content: center;
     row-gap: 50px;
 }
@@ -270,18 +282,21 @@ div.in {
 div.img {
     display: flex;
 }
+div.img img {
+    width: 100%;
+}
 
 .team-section-images {
     display: flex;
     flex-direction: column;
-    width: 263px;
-    height: 375px;
+    max-width: 263px;
+    max-height: 375px;
     margin: 0 auto;
     margin-bottom: 15px;
 }
 .img {
-    height: 300px;
-}
+    max-height: 300px;
+    }
 div.employee-position {
     background-color: #e1e6ea;
     height: 75px;
@@ -314,9 +329,6 @@ display: flex;
 cursor: pointer;
 }
 
-hr{
-
-}
 
 /*Lovely work section*/
 
@@ -462,8 +474,11 @@ background-color: #39a493;
     color: #ffffff;
 }
 .featches-img{
-    width: 360px;
     height: 237px;
+}
+.featches-img img{
+    max-width: 100%;
+    width: auto;
 }
 
 /*stay in touch section*/
@@ -491,10 +506,38 @@ background-color: #39a493;
 .describe-stay-in-touch b{
     font-weight: bold;
 }
+
+
+/*contacts-form*/
 .contact-form {
+    display: none;
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.7);
+    
+}
+.contact-form-block {
+background-color: #ffffff;
+width: 555px;
+height: 370px;
+margin: 80px auto;
+}
+.form-contact-section {
     display: flex;
     flex-direction: column;
-    background-color: #ffffff;
+    align-items: center;
+    padding: 10px;
+}
+.show {
+    display: block;
+}
+.hide {
+    display: none;
 }
 label {
     display: block;
@@ -535,15 +578,14 @@ textarea {
 .name-email {
     padding-bottom: 30px;
 }
-.view-more-button {
-    align-self: flex-start;
-}
+
 .close-button {
     cursor: pointer;
     align-self: flex-end;
+    font-size: 12px;
     color: red;
     font-weight: bold;
-    margin-top: 5px;
+    margin-top: 4px;
 }
 
 /*footer*/
@@ -628,12 +670,6 @@ div.icon-5 {
         height: 94px;
         align-items: center;
     }
-    
-    .contact-form {
-        display: flex;
-        flex-wrap: wrap;
-        }
-    
 }
 
 
@@ -669,10 +705,15 @@ div.icon-5 {
         flex: 0 0 41.66667%;
         max-width: 41.66667%;
     }
-    
+    .position-centre {
+        justify-content: center;
+    }
+    .row-mobile {
+        height: auto;
+    }
+
     form.main-search{
         display: flex;
-        justify-content: flex-start;
         border: 1px solid transparent;
     }
     
@@ -686,6 +727,10 @@ div.icon-5 {
     div.search{
         width: 80%;
     }
+    .loupe {
+        width: 20%;
+
+    }
     
     ::placeholder {
         font-size: 14px;
@@ -695,7 +740,7 @@ div.icon-5 {
     
     .loupe button{
         height: 100%;
-        width: 20px;
+        width: 100%;
         background-color: transparent;
         background-image: url(images/loupe.png);
         background-repeat: no-repeat;
@@ -743,26 +788,18 @@ div.icon-5 {
     .what-we-do-block{
         display: flex;
         }
-    }
     section {
         padding-bottom: 50px;
+    } 
     }
+    
 
-    .contact-form-section {
-        position: relative;
-    }
-    .contact-form {
-        position: absolute;
-        margin-top: -130px;
-        margin-left: 50%;
-    }
-
+    
 /*desctop*/
 @media (min-width:1200px) {
     .container {
         max-width: 1170px;
     }
-    
 }
 
 /*only mobyle*/
@@ -771,7 +808,9 @@ div.icon-5 {
    .hidden-xs {
        display: none;
    } 
-   
+   .contact-form {
+    display: none;
+   }
    .menu ul{
     display: flex;
     justify-content: flex-start;
@@ -794,22 +833,75 @@ div.icon-5 {
     font-size: 24px;
     text-align: center;
     }
-     .contact-form-section {
-        position: relative;
-    }
-    .contact-form {
-        position: absolute;
-        margin-top: -250px;
-        margin-left: 5%;
-        opacity: 0.9;
-    }
+        
     .footer-icons {
         margin-bottom: 20px;
     }
     .copyright p{
         margin-top: 20px;
      }
+      
+     /*mobile menu*/ 
+     .nav-mobile-menu {
+        width: 15px;
+        height: 15px;
+        position: relative;
         
+    }
+    .nav-mobile-menu span {
+        height: 1px;
+        background-color: white;
+        left: 0;
+        right: 0;
+        position: absolute;
+        transition: .25s ease-in-out;
+    }
+    .nav-mobile-menu span:first-child {
+        top:3px;
+    }
+    .nav-mobile-menu span:nth-child(2) {
+        top:7px;
+    }
+    .nav-mobile-menu span:last-child {
+        bottom: 3px;
+    }
+
+    .navigation {
+        opacity: 0;
+        visibility: hidden;
+        position: fixed;
+        top:0;
+        right: 0;
+        bottom: 0;
+        width: 280px;
+        max-width: 280px;
+        transform: translateX(150%);
+    }
+    .nav-mobile-menu.active-menu span:first-child {
+        top:50%;
+        transform: rotate(45deg);
+    }
+    .nav-mobile-menu.active-menu span:nth-child(2) {
+        top:50%;
+        transform: rotate(-45deg);
+    }
+    .nav-mobile-menu.active-menu span:last-child {
+        transform: scale(0);
+    }
+    .navigation.active-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+        background-color: #1d2126;
+        top: 40px;
+        z-index: 100;
+        padding: 25px;
+        width: 50%;
+    }
+    .navigation.active-menu ul {
+        flex-direction: column;
+    }
+
     }
 
 
