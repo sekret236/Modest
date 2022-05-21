@@ -814,8 +814,6 @@ div.icon-5 {
    .menu ul{
     display: flex;
     justify-content: flex-start;
-    overflow-x: scroll;
-    margin-top: 5px;
     } 
     
     .logo{
